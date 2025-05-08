@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Museum Guide</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .container { max-width: 800px; margin: 50px auto; text-align: center; }
+        h1 { color: #333; }
+        .chat-box { border: 1px solid #ccc; padding: 20px; background: #f9f9f9; }
+        .chat-input { width: calc(100% - 22px); padding: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Virtual Museum Guide</h1>
+        <div class="chat-box" id="chat-box">
+            <p>Welcome to the museum! Type your question below:</p>
+        </div>
+        <input type="text" id="chat-input" class="chat-input" placeholder="Ask about an exhibit...">
+        <button onclick="askExhibit()">Ask</button>
+    </div>
+    <script>
+        function askExhibit() {
+            const input = document.getElementById('chat-input').value;
+            const chatBox = document.getElementById('chat-box');
+            // Assuming a simple mock logic for example purposes
+            if (input.toLowerCase().includes('mona lisa')) {
+                chatBox.innerHTML += '<p>You: ' + input + '</p>';
+                chatBox.innerHTML += '<p>Guide: The Mona Lisa is a portrait painting by Leonardo da Vinci.</p>';
+            } else {
+                chatBox.innerHTML += '<p>You: ' + input + '</p>';
+                chatBox.innerHTML += '<p>Guide: Sorry, I don\'t have information on that exhibit.</p>';
+            }
+            document.getElementById('chat-input').value = '';
+        }
+    </script>
+</body>
+</html>
